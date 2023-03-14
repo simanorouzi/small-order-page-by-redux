@@ -3,7 +3,6 @@ import { expandTagDescription } from '@reduxjs/toolkit/dist/query/endpointDefini
 export type CartType = {
   items: OrderItemType[];
   totalCount: number;
-  totalPrice: number;
 };
 export type StoreType = {
   cart: CartType;
@@ -14,7 +13,14 @@ export type OrderItemType = {
   title: string;
   count: number;
   price: number;
+  totalPrice: number;
 };
 export type ShowCartType = {
   isShowCart: boolean;
+};
+
+export type FoodItemType = {
+  id: string;
+  title: string;
+  price: number;
 };

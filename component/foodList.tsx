@@ -1,29 +1,14 @@
 import * as React from 'react';
-import * as Redux from 'react-redux';
-import { useAppSelector, cartActions } from '../src/cartRedux';
-import { OrderItemType, StoreType } from '../src/types';
+import { FoodItemType } from '../src/types';
+import FoodItem from './foodItem';
 
+const dumyFoddList: FoodItemType[] = [
+  { id: '1', title: 'Chiken', price: 5 },
+  { id: '2', title: 'Kebab', price: 10 },
+  { id: '3', title: 'Burger', price: 15 },
+];
 const FoodList = () => {
-  const cart = useAppSelector((state) => state.cart);
-  const dispatch = Redux.useDispatch();
-
-  const addToCartHandler = () => {
-    const item = { id: '1', title: 'Food1', count: 1, price: 2 };
-    dispatch(cartActions.add(item));
-  };
-
-  return (
-    <div className="food-list">
-      <div>
-        <h2>Title</h2>
-        <p>This is first food</p>
-      </div>
-      <div>
-        <span>6$</span>
-        <button onClick={addToCartHandler}>Add To Cart</button>
-      </div>
-    </div>
-  );
+  return dumyFoddList.map((item) => <FoodItem item={item} key={item.id} />);
 };
 
 export default FoodList;

@@ -6,7 +6,6 @@ import { CartType, ShowCartType, StoreType } from '../src/types';
 
 const initialCart: CartType = {
   items: [],
-  totalPrice: 0,
   totalCount: 0,
 };
 
@@ -29,11 +28,11 @@ const cartSlice = ReduxToolkit.createSlice({
       const existItem = state.items.find((item) => item.id === newItem.id);
       if (existItem) {
         existItem.count++;
+        existItem.totalPrice = existItem.totalPrice + existItem.price;
       } else {
         state.items = [...state.items, newItem];
       }
       state.totalCount++;
-      state.totalPrice = state.totalCount * action.payload.price;
     },
     remove(state: CartType, action) {
       const existingItem = state.items.find(
@@ -41,11 +40,11 @@ const cartSlice = ReduxToolkit.createSlice({
       );
       if (existingItem.count > 1) {
         existingItem.count--;
+        existingItem.totalPrice = existingItem.totalPrice - existingItem.price;
       } else {
         state.items = state.items.filter((item) => item.id !== existingItem.id);
       }
       state.totalCount--;
-      state.totalPrice = state.totalCount * action.payload.price;
     },
   },
 });

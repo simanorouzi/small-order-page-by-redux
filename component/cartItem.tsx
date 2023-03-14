@@ -11,6 +11,7 @@ const CartItem = ({ item }: { item: OrderItemType }) => {
   const removeClickHandler = () => {
     dispatch(cartActions.remove(item));
   };
+  console.log(item);
   return (
     <div>
       <h2>{item.title}</h2>
