@@ -1,13 +1,14 @@
 import * as React from 'react';
-
+import { useAppSelector } from '../src/cartRedux';
+import CartItem from './cartItem';
 const Cart = () => {
+  const cart = useAppSelector((state) => state.cart);
   return (
     <div className="cart">
-      <h2>Title</h2>
-      <p>18$</p>
-      <p>3X</p>
-      <button>+</button>
-      <button>-</button>
+      {cart.items.map((item) => (
+        <CartItem key={item.id} item={item} />
+      ))}
+      <div>Total: {cart.totalPrice}</div>
     </div>
   );
 };

@@ -1,17 +1,17 @@
 import * as React from 'react';
-import * as ReduxToolkit from 'react-redux';
+import * as Redux from 'react-redux';
 import { useAppSelector, cartActions } from '../src/cartRedux';
 import { OrderItemType, StoreType } from '../src/types';
 
 const FoodList = () => {
   const cart = useAppSelector((state) => state.cart);
-  const dispatch = ReduxToolkit.useDispatch();
+  const dispatch = Redux.useDispatch();
 
   const addToCartHandler = () => {
-    const item = { id: '1', title: 'Food1', count: 1, price: 3 };
+    const item = { id: '1', title: 'Food1', count: 1, price: 6.5 };
     dispatch(cartActions.add(item));
-    console.log(cart);
   };
+  console.log(cart);
 
   return (
     <div className="food-list">

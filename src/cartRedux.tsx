@@ -17,10 +17,11 @@ const cartSlice = ReduxToolkit.createSlice({
       const newItem = action.payload;
       const existItem = state.items.find((item) => item.id === newItem.id);
       if (existItem) {
-        state.totalCount++;
+        existItem.count++;
       } else {
         state.items = [...state.items, newItem];
       }
+      state.totalCount++;
       state.totalPrice = state.totalCount * action.payload.price;
     },
     remove(state: CartType, action) {
@@ -28,11 +29,12 @@ const cartSlice = ReduxToolkit.createSlice({
         (item) => item.id === action.payload.id
       );
       if (existingItem.count > 1) {
-        state.totalCount--;
+        existingItem.count--;
       } else {
         state.items = state.items.filter((item) => item.id !== existingItem.id);
       }
       state.totalPrice = state.totalCount * action.payload.price;
+      state.totalCount--;
     },
   },
 });
