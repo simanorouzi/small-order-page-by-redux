@@ -8,10 +8,9 @@ const FoodList = () => {
   const dispatch = Redux.useDispatch();
 
   const addToCartHandler = () => {
-    const item = { id: '1', title: 'Food1', count: 1, price: 6.5 };
+    const item = { id: '1', title: 'Food1', count: 1, price: 2 };
     dispatch(cartActions.add(item));
   };
-  console.log(cart);
 
   return (
     <div className="food-list">

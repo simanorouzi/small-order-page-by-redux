@@ -7,6 +7,7 @@ export type CartType = {
 };
 export type StoreType = {
   cart: CartType;
+  showCart: ShowCartType;
 };
 export type OrderItemType = {
   id: string;

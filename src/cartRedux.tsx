@@ -27,6 +27,7 @@ const cartSlice = ReduxToolkit.createSlice({
     add(state: CartType, action) {
       const newItem = action.payload;
       const existItem = state.items.find((item) => item.id === newItem.id);
+      console.log(existItem);
       if (existItem) {
         existItem.count++;
       } else {
@@ -44,17 +45,18 @@ const cartSlice = ReduxToolkit.createSlice({
       } else {
         state.items = state.items.filter((item) => item.id !== existingItem.id);
       }
-      state.totalPrice = state.totalCount * action.payload.price;
       state.totalCount--;
+      state.totalPrice = state.totalCount * action.payload.price;
     },
   },
 });
 
 const store = ReduxToolkit.configureStore<StoreType>({
-  reducer: { cart: cartSlice.reducer },
+  reducer: { cart: cartSlice.reducer, showCart: showCartSlice.reducer },
 });
 
 export const useAppSelector: TypedUseSelectorHook<StoreType> = useSelector;
 
 export const cartActions = cartSlice.actions;
+export const showCartAction = showCartSlice.actions;
 export default store;
