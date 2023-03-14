@@ -14,7 +14,7 @@ const CartItem = ({ item }: { item: OrderItemType }) => {
   return (
     <div>
       <h2>{item.title}</h2>
-      <p>{item.price}$</p>
+      <p>{item.price.toFixed(2)}$</p>
       <p>{item.count}X</p>
       <button onClick={addClickHandler}>+</button>
       <button onClick={removeClickHandler}>-</button>

@@ -27,7 +27,6 @@ const cartSlice = ReduxToolkit.createSlice({
     add(state: CartType, action) {
       const newItem = action.payload;
       const existItem = state.items.find((item) => item.id === newItem.id);
-      console.log(existItem);
       if (existItem) {
         existItem.count++;
       } else {
