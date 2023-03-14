@@ -2,13 +2,24 @@ import * as Redux from 'redux';
 import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import * as ReduxToolkit from '@reduxjs/toolkit';
 
-import { CartType, StoreType } from '../src/types';
+import { CartType, ShowCartType, StoreType } from '../src/types';
 
 const initialCart: CartType = {
   items: [],
   totalPrice: 0,
   totalCount: 0,
 };
+
+const initialShowCart: ShowCartType = { isShowCart: false };
+const showCartSlice = ReduxToolkit.createSlice({
+  name: 'showCart',
+  initialState: initialShowCart,
+  reducers: {
+    toggle(state: ShowCartType) {
+      state.isShowCart = !state.isShowCart;
+    },
+  },
+});
 const cartSlice = ReduxToolkit.createSlice({
   name: 'cart',
   initialState: initialCart,

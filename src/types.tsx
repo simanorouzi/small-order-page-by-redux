@@ -14,3 +14,6 @@ export type OrderItemType = {
   count: number;
   price: number;
 };
+export type ShowCartType = {
+  isShowCart: boolean;
+};
