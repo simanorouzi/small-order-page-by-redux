@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useAppSelector, showCartAction } from '../src/cartRedux';
+import { showCartAction } from '../src/uiSlice';
+import { useAppSelector } from '../src/myStore';
 import * as Redux from 'react-redux';
 
 const Header = () => {

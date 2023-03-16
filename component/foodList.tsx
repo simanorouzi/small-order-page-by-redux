@@ -8,7 +8,13 @@ const dumyFoddList: FoodItemType[] = [
   { id: '3', title: 'Burger', price: 15 },
 ];
 const FoodList = () => {
-  return dumyFoddList.map((item) => <FoodItem item={item} key={item.id} />);
+  return (
+    <div>
+      {dumyFoddList.map((item) => (
+        <FoodItem item={item} key={item.id} />
+      ))}
+    </div>
+  );
 };
 
 export default FoodList;

@@ -3,7 +3,7 @@ import './style.css';
 import Header from './component/header';
 import Foods from './component/foodList';
 import Cart from './component/cart';
-import { useAppSelector } from './src/cartRedux';
+import { useAppSelector } from './src/myStore';
 
 export default function App() {
   const isShowCart = useAppSelector((state) => state.showCart.isShowCart);
