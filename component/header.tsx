@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { showCartAction } from '../src/uiSlice';
+import { uiActions } from '../src/uiSlice';
 import { useAppSelector } from '../src/myStore';
 import * as Redux from 'react-redux';
 
@@ -7,7 +7,7 @@ const Header = () => {
   const totalCount = useAppSelector((state) => state.cart.totalCount);
   const dispatch = Redux.useDispatch();
   const showCartHandler = () => {
-    dispatch(showCartAction.toggle());
+    dispatch(uiActions.toggle());
   };
   return (
     <header className="menu">

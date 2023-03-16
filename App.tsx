@@ -3,15 +3,21 @@ import './style.css';
 import Header from './component/header';
 import Foods from './component/foodList';
 import Cart from './component/cart';
+import Notification from './uI/notification';
 import { useAppSelector } from './src/myStore';
 
 export default function App() {
-  const isShowCart = useAppSelector((state) => state.showCart.isShowCart);
+  const showUI = useAppSelector((state) => state.showUI);
+  const cart = useAppSelector((state) => state.cart);
+  React.useEffect(() => {}, [cart]);
   return (
     <div>
       <Header />
       <Foods />
-      {isShowCart && <Cart />}
+      {showUI.showNotification && (
+        <Notification notification={showUI.showNotification} />
+      )}
+      {showUI.isShowCart && <Cart />}
     </div>
   );
 }

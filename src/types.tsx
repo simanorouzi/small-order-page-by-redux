@@ -1,12 +1,10 @@
-import { expandTagDescription } from '@reduxjs/toolkit/dist/query/endpointDefinitions';
-
 export type CartType = {
   items: OrderItemType[];
   totalCount: number;
 };
 export type StoreType = {
   cart: CartType;
-  showCart: ShowCartType;
+  showUI: ShowCartType;
 };
 export type OrderItemType = {
   id: string;
@@ -17,6 +15,7 @@ export type OrderItemType = {
 };
 export type ShowCartType = {
   isShowCart: boolean;
+  showNotification: NotificationType;
 };
 
 export type FoodItemType = {
@@ -24,3 +23,15 @@ export type FoodItemType = {
   title: string;
   price: number;
 };
+
+export type NotificationType = {
+  title: string;
+  message: string;
+  maessageType: messageType;
+};
+
+export enum messageType {
+  success = 1,
+  error = 2,
+  prnding = 3,
+}

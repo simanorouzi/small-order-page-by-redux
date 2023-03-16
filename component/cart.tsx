@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Redux from 'react-redux';
-import { showCartAction } from '../src/uiSlice';
+import { uiActions } from '../src/uiSlice';
 import { useAppSelector } from '../src/myStore';
 import CartItem from './cartItem';
 const Cart = () => {
@@ -9,7 +9,7 @@ const Cart = () => {
   const totalPrice = cart.items.reduce((prev, cur) => prev + cur.totalPrice, 0);
 
   const closeClickHandler = () => {
-    dispatch(showCartAction.toggle());
+    dispatch(uiActions.toggle());
   };
   return (
     <div className="cart">

@@ -25,3 +25,17 @@ a {
 a:hover {
   color: #eee;
 }
+.notification {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.notification.success {
+  background-color: rgb(179, 241, 179);
+}
+.notification.error {
+  background-color: rgb(241, 179, 179);
+}
+.notification.pending {
+  background-color: rgb(179, 180, 241);
+}
