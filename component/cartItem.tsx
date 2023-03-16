@@ -1,12 +1,20 @@
 import * as React from 'react';
 import { cartActions } from '../src/cartRedux';
 import * as Redux from 'react-redux';
-import { OrderItemType } from '../src/types';
+import { messageType, OrderItemType } from '../src/types';
+import { uiActions } from '../src/uiSlice';
 
 const CartItem = ({ item }: { item: OrderItemType }) => {
   const dispatch = Redux.useDispatch();
   const addClickHandler = () => {
     dispatch(cartActions.add(item));
+    dispatch(
+      uiActions.showNotification({
+        title: 'Success',
+        message: 'Add to cart did successfully',
+        maessageType: messageType.success,
+      })
+    );
   };
   const removeClickHandler = () => {
     dispatch(cartActions.remove(item));

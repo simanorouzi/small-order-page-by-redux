@@ -15,7 +15,7 @@ export type OrderItemType = {
 };
 export type ShowCartType = {
   isShowCart: boolean;
-  showNotification: NotificationType;
+  showNotification?: NotificationType;
 };
 
 export type FoodItemType = {
