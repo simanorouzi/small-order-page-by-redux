@@ -30,6 +30,16 @@ export type NotificationType = {
   maessageType: messageType;
 };
 
+export type RequestType = {
+  method: method;
+  body: OrderItemType;
+  headers: { [key: string]: string };
+};
+
+export enum method {
+  Get = 1,
+  Post = 2,
+}
 export enum messageType {
   success = 1,
   error = 2,
