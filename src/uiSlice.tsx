@@ -1,12 +1,6 @@
 import * as ReduxToolkit from '@reduxjs/toolkit';
 
-import {
-  messageType,
-  NotificationType,
-  OrderItemType,
-  RequestType,
-  ShowCartType,
-} from '../src/types';
+import { messageType, NotificationType, ShowCartType } from '../src/types';
 
 const initialShowCart: ShowCartType = {
   isShowCart: false,
@@ -33,37 +27,5 @@ const uiSlice = ReduxToolkit.createSlice({
   },
 });
 
-export const sendCartData = (cartData: OrderItemType) => {
-  return async (dispatch) => {
-    dispatch(
-      uiActions.showNotification({
-        title: 'Pending',
-        message: 'Data is Sending...',
-        maessageType: messageType.prnding,
-      })
-    );
-
-    const t = JSON.stringify(cartData);
-    console.log('dfsdfd');
-    const response = await fetch(
-      'https://foodorder-35902-default-rtdb.europe-west1.firebasedatabase.app/Cart.json',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(cartData),
-      }
-    );
-
-    if (response.ok) {
-      dispatch(
-        uiActions.showNotification({
-          title: 'Success',
-          message: 'Data sent successfully',
-          maessageType: messageType.success,
-        })
-      );
-    }
-  };
-};
 export const uiActions = uiSlice.actions;
 export default uiSlice;

@@ -1,6 +1,7 @@
 export type CartType = {
   items: OrderItemType[];
   totalCount: number;
+  changed: boolean;
 };
 export type StoreType = {
   cart: CartType;

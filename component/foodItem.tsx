@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { FoodItemType, method, OrderItemType, RequestType } from '../src/types';
 import * as Redux from 'react-redux';
-import { cartActions } from '../src/cartRedux';
-import { sendCartData } from '../src/uiSlice';
-import { AnyAction } from 'redux';
+import { cartActions, sendCartData } from '../src/cartRedux';
 
 const foodItem = ({ item }: { item: FoodItemType }) => {
   const dispatch = Redux.useDispatch();
@@ -18,7 +16,6 @@ const foodItem = ({ item }: { item: FoodItemType }) => {
     };
 
     dispatch(cartActions.add(orderItem));
-    dispatch(sendCartData(orderItem));
   };
   return (
     <div className="food-list">
